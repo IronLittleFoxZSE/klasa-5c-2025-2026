@@ -44,51 +44,5 @@ namespace CollectionConsoleApp
 
 
         }
-
-
-
-
-
-
-        public int MinTime(int[] arrayOfTimes, int count)
-        {
-            int min = 0;
-
-            for (int i = 0; i < 0 + count; i++)
-            {
-                min += arrayOfTimes[i];
-            }
-
-            for (int i = 1; i < arrayOfTimes.Length - (count - 1); i++)
-            {
-                int sum = 0;
-
-                for (int j = i; j < i + count; j++)
-                {
-                    sum += arrayOfTimes[j];
-                }
-    
-                if (min > sum)
-                    min = sum;
-            }
-
-            return min;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
