@@ -60,5 +60,36 @@ namespace CollectionConsoleApp
 
 
         }
+
+        public void TestObjectArrayCollection()
+        {
+            Number[] arrayWidthObjectNumbers = new Number[5];
+            //arrayWidthObjectNumbers[2].ourNumber = 7;
+
+            Random random = new Random();
+            for (int i = 0; i < arrayWidthObjectNumbers.Length; i++)
+            {
+                arrayWidthObjectNumbers[i] = new Number();
+                arrayWidthObjectNumbers[i].ourNumber = random.Next() % 100;
+            }
+
+            foreach (Number number in arrayWidthObjectNumbers)
+            {
+                Console.Write($"{number.ourNumber} ,");
+            }
+
+            int max = arrayWidthObjectNumbers[0].ourNumber;
+            foreach (Number number in arrayWidthObjectNumbers)
+            {
+                if (number.ourNumber > max)
+                    max = number.ourNumber;
+            }
+            Console.WriteLine("Max w tablicy to: " + max);
+        }
+    }
+
+    class Number
+    {
+        public int ourNumber;
     }
 }
