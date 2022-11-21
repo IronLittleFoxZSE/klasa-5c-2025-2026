@@ -57,8 +57,6 @@ namespace CollectionConsoleApp
                     max = number;
             }
             Console.WriteLine("Max w tablicy to: " + max);
-
-
         }
 
         public void TestObjectArrayCollection()
@@ -76,6 +74,8 @@ namespace CollectionConsoleApp
             foreach (Number number in arrayWidthObjectNumbers)
             {
                 Console.Write($"{number.ourNumber} ,");
+                //number = new Number();
+                number.ourNumber = 7;
             }
 
             int max = arrayWidthObjectNumbers[0].ourNumber;
@@ -86,10 +86,31 @@ namespace CollectionConsoleApp
             }
             Console.WriteLine("Max w tablicy to: " + max);
         }
+
+        public void TestGeneric()
+        {
+
+        }
+
     }
 
     class Number
     {
         public int ourNumber;
+    }
+
+    class NumberFloat
+    {
+        public float ourNumber;
+    }
+
+    class NumberDouble
+    {
+        public double ourNumber;
+    }
+
+    class Number<T>
+    {
+        public T ourNumber;
     }
 }
