@@ -27,6 +27,7 @@ namespace CollectionConsoleApp
             }
             */
             int[] arrayOfNumbers = new int[10];
+            Console.WriteLine("Kolekcja ma elemenów:" + arrayOfNumbers.Length);
             arrayOfNumbers[5] = 2137;
 
             Random random = new Random();
@@ -119,7 +120,6 @@ namespace CollectionConsoleApp
             //int[] tab = new int[10];
             //pracuje na tabilcy
             //tab[4] = 2137;
-
             List<int> listOfInts = new List<int>();
             Console.WriteLine("Kolekcja ma elemenów:" + listOfInts.Count);
             listOfInts.Add(5);
@@ -127,6 +127,21 @@ namespace CollectionConsoleApp
             Console.WriteLine("Zerowy element kolekcji: " + listOfInts[0]);
             listOfInts.Add(2137);
             Console.WriteLine("Pierwszy element kolekcji: " + listOfInts[1]);
+
+            for (int i = 0; i < new Random().Next(1, 100); i++)
+            {
+                listOfInts.Add(new Random().Next(1, 100));
+            }
+
+            for (int i = 0; i < listOfInts.Count; i++)
+            {
+                //listOfInts[i] = 2;
+            }
+
+            foreach (int item in listOfInts)
+            {
+                Console.WriteLine("Element: " + item);
+            }
         }
 
     }
