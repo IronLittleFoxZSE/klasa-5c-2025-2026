@@ -39,10 +39,12 @@ namespace CollectionConsoleApp
             }
             Console.WriteLine();
 
-            int max = MaxFromInts(listOfInts);
+            //int max = MaxFromInts(listOfInts);
+            int max = MaxFromAllTypes<int>(listOfInts);
             Console.WriteLine("Max w liście int'ów: " + max);
 
-            double maxDouble = MaxFromInts(listOfDoubles);
+            //double maxDouble = MaxFromDoubles(listOfDoubles);
+            double maxDouble = MaxFromAllTypes<double>(listOfDoubles);
             Console.WriteLine("Max w liście double'ów: " + maxDouble);
         }
 
@@ -50,6 +52,28 @@ namespace CollectionConsoleApp
         {
             int max = list[0];
             foreach (int item in list)
+            {
+                if (item > max)
+                    max = item;
+            }
+            return max;
+        }
+
+        private double MaxFromDoubles(List<double> list)
+        {
+            double max = list[0];
+            foreach (double item in list)
+            {
+                if (item > max)
+                    max = item;
+            }
+            return max;
+        }
+
+        private T MaxFromAllTypes<T>(List<T> list)
+        {
+            T max = list[0];
+            foreach (T item in list)
             {
                 if (item > max)
                     max = item;
