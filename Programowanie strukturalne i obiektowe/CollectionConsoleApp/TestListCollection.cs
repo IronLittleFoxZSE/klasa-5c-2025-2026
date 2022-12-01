@@ -40,11 +40,11 @@ namespace CollectionConsoleApp
             Console.WriteLine();
 
             //int max = MaxFromInts(listOfInts);
-            int max = MaxFromAllTypes<int>(listOfInts);
+            int max = MaxFromAllTypes<int>(listOfInts, CheckInt);
             Console.WriteLine("Max w liście int'ów: " + max);
 
             //double maxDouble = MaxFromDoubles(listOfDoubles);
-            double maxDouble = MaxFromAllTypes<double>(listOfDoubles);
+            double maxDouble = MaxFromAllTypes<double>(listOfDoubles, CheckDouble);
             Console.WriteLine("Max w liście double'ów: " + maxDouble);
         }
 
@@ -70,15 +70,50 @@ namespace CollectionConsoleApp
             return max;
         }
 
-        private T MaxFromAllTypes<T>(List<T> list)
+        //Action
+        //Func
+        private T MaxFromAllTypes<T>(List<T> list, Func<T, T, bool> check)
         {
             T max = list[0];
             foreach (T item in list)
             {
-                if (item > max)
+                /*if (item is int)
+                {
+                    if (CheckInt(int.Parse(item.ToString()), int.Parse(max.ToString())))
+                        max = item;
+                }
+                if (item is double)
+                {
+                    if (CheckDouble(double.Parse(item.ToString()), double.Parse(max.ToString())))
+                        max = item;
+                }*/
+                /*if (item is Person)
+                {
+                    if (CheckPerson(item as Person, max as Person)
+                        max = item;
+                }*/
+
+                /*if (item > max)
+                    max = item;*/
+                if (check(item, max))
                     max = item;
             }
             return max;
         }
+
+        private bool CheckInt(int firstNumber, int secondNumber)
+        {
+            return firstNumber > secondNumber;
+        }
+
+        private bool CheckDouble(double firstNumber, double secondNumber)
+        {
+            return firstNumber > secondNumber;
+        }
+
+        /*private Person CheckPerson(Person firstPerson, Person secondPerson)
+        {
+            return firstPerson.age > secondPerson.age;
+        }*/
     }
 }
