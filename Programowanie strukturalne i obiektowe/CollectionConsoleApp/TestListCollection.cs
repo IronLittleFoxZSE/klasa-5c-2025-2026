@@ -40,11 +40,17 @@ namespace CollectionConsoleApp
             Console.WriteLine();
 
             //int max = MaxFromInts(listOfInts);
-            int max = MaxFromAllTypes<int>(listOfInts, CheckInt);
+            //int max = MaxFromAllTypes<int>(listOfInts, CheckInt);
+            int max = MaxFromAllTypes<int>(listOfInts, 
+                (int firstNumber, int secondNumber) =>
+                {
+                    return firstNumber > secondNumber;
+                });
             Console.WriteLine("Max w liście int'ów: " + max);
 
             //double maxDouble = MaxFromDoubles(listOfDoubles);
-            double maxDouble = MaxFromAllTypes<double>(listOfDoubles, CheckDouble);
+            //double maxDouble = MaxFromAllTypes<double>(listOfDoubles, CheckDouble);
+            double maxDouble = MaxFromAllTypes<double>(listOfDoubles, (double firstNumber, double secondNumber) => firstNumber > secondNumber);
             Console.WriteLine("Max w liście double'ów: " + maxDouble);
         }
 
@@ -111,7 +117,7 @@ namespace CollectionConsoleApp
             return firstNumber > secondNumber;
         }
 
-        /*private Person CheckPerson(Person firstPerson, Person secondPerson)
+        /*private Person CheckPersonAge(Person firstPerson, Person secondPerson)
         {
             return firstPerson.age > secondPerson.age;
         }*/
