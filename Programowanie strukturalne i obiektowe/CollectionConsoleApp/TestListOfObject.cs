@@ -68,7 +68,5 @@ namespace CollectionConsoleApp
             bool isLegalAge = listOfPeople.All(x => x.age < 18);
             Console.WriteLine("Czy wszystkie osoby są pełnoletnie " + isLegalAge);
         }
-
-
     }
 }
