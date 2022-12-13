@@ -4,8 +4,8 @@ namespace ShapeConsoleApp.Shapes
 {
     class Rectangle
     {
-        private double sideA;
-        private double sideB;
+        protected double sideA;
+        protected double sideB;
 
         public Rectangle()
         {
@@ -15,8 +15,8 @@ namespace ShapeConsoleApp.Shapes
 
         public Rectangle(double sideA, double sideB)
         {
-            this.sideA = sideA;
-            this.sideB = sideB;
+            this.sideA = Math.Abs(sideA);
+            this.sideB = Math.Abs(sideB);
         }
 
         public double Area()
@@ -31,7 +31,6 @@ namespace ShapeConsoleApp.Shapes
 
         public void ShowInfo()
         {
-
             Console.WriteLine("Informacja o prostokącie");
             Console.WriteLine("Bok a = " + sideA);
             Console.WriteLine("Bok b = " + sideB);
