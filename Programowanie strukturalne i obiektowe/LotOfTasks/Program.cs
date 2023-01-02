@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 /*
 Podstawy programowania:
@@ -78,6 +79,15 @@ namespace LotOfTasks
             Console.WriteLine("Podaj liczbę:");
             string dana =  Console.ReadLine();
             int number = int.Parse(dana);
+            int number2 = int.Parse(Console.ReadLine());
+            //Math.Pi
+            Dictionary<char, string> d = new Dictionary<char, string>()
+            { 
+                { 'A', "+-+" }, { 'B', "+-+" }, { 'C', "+-+" }, 
+                { 'A', "+-+" }, { 'B', "+-+" }, { 'C', "+-+" }, 
+                { 'A', "+-+" }, { 'B', "+-+" }, { 'C', "+-+" }, 
+                { 'A', "+-+" }, { 'B', "+-+" }, { 'C', "+-+" }, 
+            };
         }
     }
 }
