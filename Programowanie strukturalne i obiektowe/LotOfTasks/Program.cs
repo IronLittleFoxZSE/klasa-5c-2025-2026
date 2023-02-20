@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Intrinsics.Arm;
 
 /*
 Podstawy programowania:
@@ -36,7 +37,7 @@ Pętla for:
 4. Program wyświetlający na ekranie silnie z liczb od 1 do 10 (np. 1!, 2!, 3!, 4! itd.)
 5. Program wyświetlający na ekranie tabliczkę mnożenia od 1 do 9 (np. 1x1=1, 1x2=2, 1x3=3 itd.).
 6. Program wyświetlający na ekranie wszystkie liczby podzielne przez 3 z zakresu od 1 do 100
-7.Program obliczający sumę kwadratów liczb od 1 do 10
+7. Program obliczający sumę kwadratów liczb od 1 do 10
 8. Program wyświetlający na ekranie ciąg Fibonacciego do 20 elementu (ciąg Fibonacciego to ciąg gdzie każdy element jest sumą dwóch poprzednich, np. 0, 1, 1, 2, 3, 5, 8, 13 itd.)
 9. Program wyświetlający na ekranie kolejne potęgi 2 od 2^0 do 2^10 (np. 2^0, 2^1, 2^2 itd.)
 10. Program wyświetlający na ekranie kolejne elementy ciągu a_n = a_{n-1} + a_{n-2}, gdzie a_0=1, a_1=1 (ciąg ten zaczyna się od 1, 1, 2, 3, 5, 8, 13 itd.).
@@ -68,9 +69,103 @@ namespace LotOfTasks
 {
     class Program
     {
+        //1. Program obliczający średnią arytmetyczną dwóch liczb.
+        private static void Task1()
+        {
+            int firstNumber, secondNumber;
+            Console.WriteLine("Podaj pierwszą liczbę");
+            if (!int.TryParse(Console.ReadLine(), out firstNumber))
+            {
+                Console.WriteLine("Błąd konwersji");
+                return;
+            }
+
+            Console.WriteLine("Podaj drugą liczbę");
+            if (!int.TryParse(Console.ReadLine(), out secondNumber))
+            {
+                Console.WriteLine("Błąd konwersji");
+                return;
+            }
+
+            double avg = (firstNumber + secondNumber) / 2.0;
+            Console.WriteLine($"Średnia: {avg}");
+        }
+
+        //1. Program implementujący algorytm szyfrowania Cezara
+        //(proste szyfrowanie, w którym każdy znak w tekście jest zastępowany innym znakiem,
+        //przesuniętym o stałą liczbę pozycji w alfabecie).
+        private static void Task2()
+        {
+            string textFromUser;
+            Console.WriteLine("Podaj tekst do zaszyfrowania");
+            textFromUser = Console.ReadLine();
+
+            int shift = 2;
+
+            string newString = "";
+
+            for (int i = 0; i < textFromUser.Length; i++)
+            {
+                if (textFromUser[i] >= 'a' && textFromUser[i] <= 'z')
+                {
+                    char newChar = (char)(textFromUser[i] + shift);
+                    if (newChar > 'z')
+                        newChar = (char)(newChar - 26);
+                    newString = newString + newChar;
+                }
+
+                if (textFromUser[i] >= 'A' && textFromUser[i] <= 'Z')
+                {
+                    char newChar = (char)(textFromUser[i] + shift);
+                    if (newChar > 'Z')
+                        newChar = (char)(newChar - 26);
+                    newString = newString + newChar;
+                }
+
+                if (textFromUser[i] >= '0' && textFromUser[i] <= '9')
+                {
+                    char newChar = (char)(textFromUser[i] + shift);
+                    if (newChar > '9')
+                        newChar = (char)(newChar - 10);
+                    newString = newString + newChar;
+                }
+            }
+            Console.WriteLine("Po zaszyfrowaniu: " + newString);
+
+            textFromUser = "";
+            for (int i = 0; i < newString.Length; i++)
+            {
+                if (newString[i] >= 'a' && newString[i] <= 'z')
+                {
+                    char newChar = (char)(newString[i] - shift);
+                    if (newChar < 'a')
+                        newChar = (char)(newChar + 26);
+                    textFromUser = textFromUser + newChar;
+                }
+
+                if (newString[i] >= 'A' && newString[i] <= 'Z')
+                {
+                    char newChar = (char)(newString[i] - shift);
+                    if (newChar < 'A')
+                        newChar = (char)(newChar + 26);
+                    textFromUser = textFromUser + newChar;
+                }
+
+                if (newString[i] >= '0' && newString[i] <= '9')
+                {
+                    char newChar = (char)(newString[i] - shift);
+                    if (newChar < '0')
+                        newChar = (char)(newChar + 10);
+                    textFromUser = textFromUser + newChar;
+                }
+            }
+            Console.WriteLine("Po odszyfrowaniu: " + textFromUser);
+        }
+
         static void Main(string[] args)
         {
-            Exercise exercise = new Exercise();
+            Task2();
+            /*Exercise exercise = new Exercise();
             exercise.Exercise1();
             //exercise.Exercise2();
             //exercise.Exercise3();
@@ -88,6 +183,8 @@ namespace LotOfTasks
                 { 'A', "+-+" }, { 'B', "+-+" }, { 'C', "+-+" }, 
                 { 'A', "+-+" }, { 'B', "+-+" }, { 'C', "+-+" }, 
             };
+
+            d.Values.*/
         }
     }
 }
