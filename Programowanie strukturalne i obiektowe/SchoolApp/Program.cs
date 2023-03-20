@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SchoolApp
 {
@@ -6,7 +7,7 @@ namespace SchoolApp
     {
         static void Main(string[] args)
         {
-           
+            Entities
         }
     }
 }
