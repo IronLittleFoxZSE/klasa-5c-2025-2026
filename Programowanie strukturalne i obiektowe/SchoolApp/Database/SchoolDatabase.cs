@@ -1,4 +1,5 @@
-﻿using SchoolApp.Database.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using SchoolApp.Database.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,15 @@ using System.Threading.Tasks;
 
 namespace SchoolApp.Database
 {
-    class SchoolDatabase
+    class SchoolDatabase : DbContext
     {
-        public List<SchoolClass> SchoolClasses { get; set; } = new List<SchoolClass>();
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        public DbSet<SchoolClass> SchoolClasses { get; set; }
 
     }
 }
