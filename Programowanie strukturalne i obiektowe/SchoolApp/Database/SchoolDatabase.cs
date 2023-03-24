@@ -12,6 +12,7 @@ namespace SchoolApp.Database
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlite("FileName=schoolDatabase.db");
 
             base.OnConfiguring(optionsBuilder);
         }
