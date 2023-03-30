@@ -18,6 +18,5 @@ namespace SchoolApp.Database
         }
 
         public DbSet<SchoolClass> SchoolClasses { get; set; }
-
     }
 }
