@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace SchoolApp.Database
 {
     //add-migration CreateDatabaseMigration -outputdir Database/Migrations
+    //update-database
     class SchoolDatabase : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
