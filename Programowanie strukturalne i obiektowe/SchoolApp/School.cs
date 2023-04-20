@@ -36,7 +36,12 @@ namespace SchoolApp
                     case 4:
                         ShowAllSchoolClasses();
                         break;
-
+                    case 5:
+                        AddNewStudent();
+                        break;
+                    case 8:
+                        ShowAllStudents();
+                        break;
                     case 0:
                         return;
                 }
@@ -52,6 +57,9 @@ namespace SchoolApp
             Console.WriteLine("2. Usunięcie klasy.");   //D - delete
             Console.WriteLine("3. Modyfikacja klasy."); //U - update
             Console.WriteLine("4. Wyświetlenie wszystkich klas."); //R - read
+
+            Console.WriteLine("5. Dodanie nowego ucznia");
+            Console.WriteLine("8. Wyświetlenie wszystkich uczniów");
 
 
             Console.WriteLine("0. Koniec programu.");
@@ -156,6 +164,49 @@ namespace SchoolApp
             }
             Console.ReadKey();
         }
+        #endregion
+
+        #region Metody do pracy na tabeli Students
+
+        private void AddNewStudent()
+        {
+            Console.WriteLine("Podaj imię:");
+            string name = Console.ReadLine();
+            Console.WriteLine("Podaj nazwisko:");
+            string surname = Console.ReadLine();
+            Console.WriteLine("Podaj id klasy:");
+            int schoolClassId = int.Parse(Console.ReadLine());
+
+            Student student = new Student()
+            {
+                Name = name,
+                Surname = surname,
+                SchoolClassId = schoolClassId
+            };
+            schoolDatabase.Students.Add(student);
+            schoolDatabase.SaveChanges();
+            Console.WriteLine("Dodano studenta");
+            Console.ReadKey();
+            
+        }
+
+        private void ShowAllStudents()
+        {
+            /*
+             select *
+               from Students
+             */
+            Console.WriteLine("Lista uczniów");
+            
+            foreach (Student student in schoolDatabase.Students)
+            {
+                Console.WriteLine("Id: " + student.Id);
+                Console.WriteLine("Imię: " + student.Name);
+                Console.WriteLine("Nazwisko: " + student.Surname);
+            }
+            Console.ReadKey();
+        }
+
         #endregion
     }
 }
