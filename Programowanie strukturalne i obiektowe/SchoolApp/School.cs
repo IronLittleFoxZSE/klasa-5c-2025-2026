@@ -1,4 +1,5 @@
-﻿using SchoolApp.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using SchoolApp.Database;
 using SchoolApp.Database.Entities;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,9 @@ namespace SchoolApp
                     case 8:
                         ShowAllStudents();
                         break;
+                    case 9:
+                        ShowAllStudentWithClass();
+                        break;
                     case 0:
                         return;
                 }
@@ -60,7 +64,7 @@ namespace SchoolApp
 
             Console.WriteLine("5. Dodanie nowego ucznia");
             Console.WriteLine("8. Wyświetlenie wszystkich uczniów");
-
+            Console.WriteLine("9. Wyświetlenie szystkich uczniów z informacją o klasie");
 
             Console.WriteLine("0. Koniec programu.");
         }
@@ -203,6 +207,30 @@ namespace SchoolApp
                 Console.WriteLine("Id: " + student.Id);
                 Console.WriteLine("Imię: " + student.Name);
                 Console.WriteLine("Nazwisko: " + student.Surname);
+            }
+            Console.ReadKey();
+        }
+
+        private void ShowAllStudentWithClass()
+        {
+            /*
+             select *
+               from Students s, SchoolClasses sc
+              where s.SchoolClassId = sc.Id
+            
+            select *
+              from Student s
+              join SchoolClasses sc on sc.Id = s.SchoolClassId
+
+             */
+            Console.WriteLine("Lista uczniów");
+
+            foreach (Student student in schoolDatabase.Students.Include(s => s.SchoolClass))
+            {
+                Console.WriteLine("Id: " + student.Id);
+                Console.WriteLine("Imię: " + student.Name);
+                Console.WriteLine("Nazwisko: " + student.Surname);
+                Console.WriteLine("Nazwa klasy: " + student.SchoolClass.Name);
             }
             Console.ReadKey();
         }
