@@ -40,6 +40,12 @@ namespace SchoolApp
                     case 5:
                         AddNewStudent();
                         break;
+                    case 6:
+                        DeleteStudent();
+                        break;
+                    case 7:
+                        ModifyStudent();
+                        break;
                     case 8:
                         ShowAllStudents();
                         break;
@@ -63,6 +69,8 @@ namespace SchoolApp
             Console.WriteLine("4. Wyświetlenie wszystkich klas."); //R - read
 
             Console.WriteLine("5. Dodanie nowego ucznia");
+            Console.WriteLine("6. Usunięcie ucznia");
+            Console.WriteLine("7. Modyfikacja ucznia");
             Console.WriteLine("8. Wyświetlenie wszystkich uczniów");
             Console.WriteLine("9. Wyświetlenie szystkich uczniów z informacją o klasie");
 
@@ -191,7 +199,7 @@ namespace SchoolApp
             schoolDatabase.SaveChanges();
             Console.WriteLine("Dodano studenta");
             Console.ReadKey();
-            
+
         }
 
         private void ShowAllStudents()
@@ -201,7 +209,7 @@ namespace SchoolApp
                from Students
              */
             Console.WriteLine("Lista uczniów");
-            
+
             foreach (Student student in schoolDatabase.Students)
             {
                 Console.WriteLine("Id: " + student.Id);
@@ -231,6 +239,50 @@ namespace SchoolApp
                 Console.WriteLine("Imię: " + student.Name);
                 Console.WriteLine("Nazwisko: " + student.Surname);
                 Console.WriteLine("Nazwa klasy: " + student.SchoolClass.Name);
+            }
+            Console.ReadKey();
+        }
+
+        private void DeleteStudent()
+        {
+            Console.WriteLine("Podaj id ucznia do usunięcia");
+            int studentId = int.Parse(Console.ReadLine());
+
+            Student studentToDelete = schoolDatabase
+                                        .Students
+                                        .FirstOrDefault(s => s.Id == studentId);
+            if (studentToDelete != null)
+            {
+                schoolDatabase.Students.Remove(studentToDelete);
+                schoolDatabase.SaveChanges();
+            }
+            else
+            {
+                Console.WriteLine("Brak ucznia w bazie");
+            }
+            Console.ReadKey();
+        }
+
+        private void ModifyStudent()
+        {
+            Console.WriteLine("Podaj id ucznia do modyfikacji");
+            int studentId = int.Parse(Console.ReadLine());
+
+            Student studentToModify = schoolDatabase
+                                        .Students
+                                        .FirstOrDefault(s => s.Id == studentId);
+            if (studentToModify != null)
+            {
+                Console.WriteLine("Podaj nowe imię:");
+                studentToModify.Name = Console.ReadLine();
+                Console.WriteLine("Podaj nowe nazwisko:");
+                studentToModify.Surname = Console.ReadLine();
+
+                schoolDatabase.SaveChanges();
+            }
+            else
+            {
+                Console.WriteLine("Brak ucznia w bazie");
             }
             Console.ReadKey();
         }
