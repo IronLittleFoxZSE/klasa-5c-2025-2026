@@ -72,7 +72,9 @@ namespace SchoolApp
             Console.WriteLine("6. Usunięcie ucznia");
             Console.WriteLine("7. Modyfikacja ucznia");
             Console.WriteLine("8. Wyświetlenie wszystkich uczniów");
-            Console.WriteLine("9. Wyświetlenie szystkich uczniów z informacją o klasie");
+            Console.WriteLine("9. Wyświetlenie wszystkich uczniów z informacją o klasie");
+            Console.WriteLine("10. Wyświetlenie wszystkich uczniów posortowanych po nazwisku");
+            Console.WriteLine("11. Wyświetlenie uczniów z różnymi warunkami");
 
             Console.WriteLine("0. Koniec programu.");
         }
@@ -287,6 +289,60 @@ namespace SchoolApp
             Console.ReadKey();
         }
 
+        private void ShowAllStudentsOrderBySurname()
+        {
+            /*
+             select *
+               from Students
+           order by surname, name dsc
+             */
+            Console.WriteLine("Lista uczniów");
+
+            foreach (Student student in schoolDatabase.Students.OrderBy(s => s.Surname).ThenByDescending(s => s.Name))
+            {
+                Console.WriteLine("Id: " + student.Id);
+                Console.WriteLine("Imię: " + student.Name);
+                Console.WriteLine("Nazwisko: " + student.Surname);
+            }
+            Console.ReadKey();
+        }
+
+        private void ShowStudents()
+        {
+            /*
+             select *
+               from Students
+              where name = "Adam"
+                and surname like 'B%'
+                and surname like '%now%'
+            group by name
+            order by surname
+             */
+
+            Console.WriteLine("Lista uczniów");
+
+            foreach (Student student in schoolDatabase.Students.Where(s => s.Name == "Adam" 
+                                                                           && s.Surname.StartsWith("B")
+                                                                           && s.Surname.Contains("now")))
+            {
+                Console.WriteLine("Id: " + student.Id);
+                Console.WriteLine("Imię: " + student.Name);
+                Console.WriteLine("Nazwisko: " + student.Surname);
+            }
+            Console.ReadKey();
+        }
+
         #endregion
     }
 }
+/*
+ * 
+  select count(*)
+    from Students
+
+  select name, count(*)
+    from Students
+   where surname = 'nowak'
+group by name
+having by count(*) >= 3
+*/
