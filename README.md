@@ -6,3 +6,4 @@ https://forms.office.com/e/JJtfiVtJf5
 Sprawdzian Grupa 2 Komputery 2,4,6,8,10,12,14,16
 https://forms.office.com/e/AypB6Tjzy0
 
+Co
