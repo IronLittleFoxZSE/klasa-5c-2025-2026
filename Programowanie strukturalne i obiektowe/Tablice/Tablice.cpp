@@ -363,8 +363,8 @@ void Zadanie28()
 	std::cout << "Podaj zakres gorny:\n";
 	std::cin >> zakresGorny;
 
-	bool jestPierwsza[2000000000];
-	for (int i = 0; i < 2000000000; i++)
+	bool jestPierwsza[200];
+	for (int i = 0; i < 200; i++)
 		jestPierwsza[i] = true;
 
 	double wynikPierwiastka = sqrt(zakresGorny);
