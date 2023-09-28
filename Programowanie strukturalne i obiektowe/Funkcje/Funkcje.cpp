@@ -21,6 +21,7 @@ void PobierzWyswietlLiczbe()
 	int liczba;
 	std::cin >> liczba;
 	std::cout << "Podales liczbe " << liczba << "\n";
+	std::string liczba;
 }
 
 void WyswietlLiczbe(int numer)
@@ -73,7 +74,7 @@ void TestFunkcjiZwracajacejDane()
 	liczbaBezwzgledna = WartoscBezwzgledna(liczba);
 
 	//float pierwiastek = sqrt(liczba);
-	//float potega = pow(3, 6); // 6^3
+	//float potega = pow(3, 6); // 3^6
 
 	std::cout << "Wartosc bezwzgledna " << liczbaBezwzgledna << "\n";
 }
@@ -561,3 +562,39 @@ void main()
 }
 
 
+void PokażZawartość(std::string scieżka)
+{
+	foreach(aktualny_element in scieżka)
+	{
+		wyswietlInfo(aktualny_element);
+		if (aktualny_element == folder)
+		{
+			PokażZawartość(aktualny_element);
+		}
+	}
+}
+
+PokażZawartość("c:\\");
+
+
+
+foreach(aktualny_element in dysk_c) - po  dysku c
+{
+	if (aktualny_element == plik)
+		wyswietlPlik(aktualny_element);
+	if (aktualny_element == folder)
+	{
+		foreach (object in aktualny_element)
+		{
+			if (object == plik)
+				wyswietlPlik(object);
+			if (object == folder)
+			{
+				foreach(dsfsd in object)
+				{
+
+				}
+			}
+		}
+	}
+}

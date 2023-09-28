@@ -9,8 +9,10 @@ float Max_2(float liczba1, float liczba2)
 {
 	if (liczba1 > liczba2)
 		return liczba1;
-	else
+	else //if (liczba2 > liczba1)
 		return liczba2;
+	//else
+	//	return liczba1;
 }
 
 float Max_2_v2(float liczba1, float liczba2)
@@ -25,7 +27,6 @@ float Max_3(float liczba1, float liczba2, float liczba3)
 {
 	if (liczba1 > liczba2 && liczba1 > liczba3)
 		return liczba1;
-	//else if (liczba2 > liczba1 && liczba2 > liczba3)
 	else if (liczba2 > liczba3)
 		return liczba2;
 	else
@@ -44,7 +45,6 @@ float Max_4(float liczba1, float liczba2, float liczba3, float liczba4)
 {
 	if (liczba1 > liczba2 && liczba1 > liczba3 && liczba1 > liczba4)
 		return liczba1;
-	//else if (liczba2 > liczba1 && liczba2 > liczba3)
 	else if (liczba2 > liczba3 && liczba2 > liczba4)
 		return liczba2;
 	else if (liczba3 > liczba4)

@@ -75,7 +75,7 @@ void Zadanie5()
 	float podatek = 0;
 	if (kwotaDoObliczen > 50000)
 	{
-		podatek = podatek +(kwotaDoObliczen - 50000) * 15 / 100;
+		podatek = podatek + (kwotaDoObliczen - 50000) * 15 / 100;
 		kwotaDoObliczen = 50000;
 	}
 	if (kwotaDoObliczen > 20000)
@@ -372,4 +372,6 @@ int main()
 	else
 		std::cout << "Nie jest z przedziału";
 }
+
+
 

@@ -1,9 +1,21 @@
 ﻿#include <iostream>
 #include <math.h>
+
+/*
+Zadania:
+* Napisz funkcję, która dla kolekcji danych liczbowych obliczy średnią arytmetyczną.
+* Napisz funkcję, która dla kolekcji danych liczbowych policzy ile jest liczb większych od średniej arytmetycznej.
+* Napisz funkcje, która dla kolekcji danych liczbowych przeniesie te liczby do innej kolekcji w odwrotnej kolejności.
+* Napisz funkcje, która dla kolekcji danych liczbowych obliczy częstotliwość występowania danej liczby.
+* Napisz funkcję, która dla kolekcji danych liczbowych znajdzie najdłuższy rosnący podciąg.
+* Napisz funkcję, która dla kolekcji danych liczbowych przeniesie te liczby do osobnych kolekcji liczb parzystych i nieparzystych.
+*  
+*/
+
+
 /*
 Napisz funkcję w której wczytamy 5 liczb i wyświetlimy je w odwrotnej kolejności.
  */
-
 void Zadanie1()
 {
 	int liczba0, liczba1, liczba2, liczba3, liczba4;
@@ -61,7 +73,7 @@ void Zadanie3()
 	std::cout << "Podaj 4 liczbe:\n";
 	std::cin >> liczby[4];
 
-	for (int i = 4; i >= 0; i--)
+	for (int i = rozmiar - 1; i >= 0; i--)
 		std::cout << liczby[i] << ", ";
 }
 

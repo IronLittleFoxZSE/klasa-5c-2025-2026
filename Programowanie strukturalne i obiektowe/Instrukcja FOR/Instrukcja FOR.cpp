@@ -17,7 +17,9 @@ void Zadanie11()
 	std::cout << "Podaj ilość gwiazdek\n";
 	std::cin >> ileGwizadek;
 	for (int i = 0; i < ileGwizadek; i++)
+	{
 		std::cout << "*";
+	}
 	std::cout << "\n";
 }
 
