@@ -62,6 +62,13 @@ Dla zaawansowanych:
 5. Program który na wejściu przyjmie równanie a na wyjściu da równanie w odwrotnej notacji polskiej ONP. Np. na wejściu 2+3*4 na wyjścu da 234*+
 6. Program, który na wejściu przyjmie rówanie w ONP a na wyjściu wyświetli wynik rówania.
 7. Napisz grę kółko i krzyżyk.
+
+
+* Napisz program, który poprosi użytkownika o wprowadzenie dowolnej liczby całkowitej. Następnie program powinien obliczyć i wyświetlić liczbę cyfr w tej liczbie.
+* Program sprawdzający czy podana liczba jest liczbą doskonałą (czyli taką, której suma dzielników (z wyłączeniem samej siebie) jest równa danej liczbie, np. 6 jest liczbą doskonałą, ponieważ 1 + 2 + 3 = 6).
+* Poproś użytkownika o wprowadzenie liczby całkowitej. Następnie oblicz sumę wszystkich cyfr w tej liczbie i wyświetl wynik.
+* Program wyświetlający na ekranie wszystkie liczby podzielne przez 3 z zakresu od 1 do 100
+* Poproś użytkownika o wprowadzenie liczby całkowitej w systemie dziesiętnym. Następnie używając pętli do-while, skonwertuj tę liczbę na system dwójkowy (binarny) i wyświetl wynik.
 */
 
 
