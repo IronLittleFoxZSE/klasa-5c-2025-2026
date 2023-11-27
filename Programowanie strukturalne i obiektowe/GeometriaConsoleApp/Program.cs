@@ -1,10 +1,12 @@
 ﻿using GeometriaConsoleApp;
 
-Point p = new Point();
+Point p = new Point(5, 8);
+p.Display();
+Console.WriteLine("Odległość od punktu (0,0) wynosi " + p.DistanceFromCenter);
 //p.x = 5;
-p.SetX(5);
+//p.SetX(5);
 //p.y = 8;
-p.Y = 8;
+//p.Y = 8;
 p.Display();
 Console.WriteLine("Odległość od punktu (0,0) wynosi " + p.DistanceFromCenter);
 //p.DistanceFromCenter = 5; //niepoprawna ponieważ brak w propertisie SET
@@ -15,6 +17,7 @@ p2.SetX(68);
 //p2.y = 78;
 p2.Y = 78;
 p2.Display();
+
 
 
 /*double x, y;

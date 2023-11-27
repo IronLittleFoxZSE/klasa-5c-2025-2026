@@ -19,7 +19,9 @@ namespace GeometriaConsoleApp
             set
             {
                 if (value > 0)
+                {
                     y = value;
+                }
                 else
                     throw new ArgumentException("Nie można ustawić wartości ujemnych");
             }
@@ -33,6 +35,19 @@ namespace GeometriaConsoleApp
             }
         }
 
+        public Point()
+        {
+            x = 0;
+            y = 0;
+        }
+
+        public Point(int x, int y)
+        {
+            
+            SetX(x);
+            Y = y;
+        }
+
         public void Display()
         {
             Console.WriteLine(x.ToString() + ", " + y.ToString());
@@ -42,7 +57,9 @@ namespace GeometriaConsoleApp
         public void SetX(int a)
         {
             if (a > 0)
+            {
                 x = a;
+            }
             else
                 throw new ArgumentException("Nie można ustawić wartości ujemnych");
         }
