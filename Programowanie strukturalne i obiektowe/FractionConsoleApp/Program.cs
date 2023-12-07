@@ -19,8 +19,8 @@ Fraction thirdFraction; //= new Fraction();
 
 thirdFraction = firstFraction * secondFraction;
 
-std::cout << "sdfgsdf";
-int x = 5 << 1;
+//std::cout << "sdfgsdf";
+//int x = 5 << 1;
 
 Console.WriteLine("Wartość trzdeciego ułamka: " + thirdFraction);
 /*

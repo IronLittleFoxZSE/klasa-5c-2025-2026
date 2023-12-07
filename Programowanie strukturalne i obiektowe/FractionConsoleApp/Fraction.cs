@@ -57,5 +57,6 @@ namespace FractionConsoleApp
             fraction.Mul(this, secondFraction);
             return fraction;
         }
+
     }
 }
