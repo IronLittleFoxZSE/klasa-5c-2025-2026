@@ -28,21 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             buttonHello = new Button();
             textBoxName = new TextBox();
             labelName = new Label();
+            checkBoxSchoolSubjectMathematics = new CheckBox();
+            checkBoxSchoolSubjectGerman = new CheckBox();
+            labelSchoolSubject = new Label();
+            label2 = new Label();
+            radioButtonPizzaQuestionYes = new RadioButton();
+            radioButtonPizzaQuestionNo = new RadioButton();
+            labelPizzaQuestion = new Label();
+            notifyIcon1 = new NotifyIcon(components);
             SuspendLayout();
             // 
             // buttonHello
             // 
+            buttonHello.BackColor = Color.Transparent;
             buttonHello.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             buttonHello.ForeColor = SystemColors.ControlText;
-            buttonHello.Location = new Point(99, 199);
+            buttonHello.Location = new Point(93, 324);
             buttonHello.Name = "buttonHello";
             buttonHello.Size = new Size(247, 96);
-            buttonHello.TabIndex = 0;
+            buttonHello.TabIndex = 1;
             buttonHello.Text = "Hello";
-            buttonHello.UseVisualStyleBackColor = true;
+            buttonHello.UseVisualStyleBackColor = false;
             buttonHello.Click += buttonHello_Click;
             // 
             // textBoxName
@@ -50,7 +60,7 @@
             textBoxName.Location = new Point(12, 47);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(338, 23);
-            textBoxName.TabIndex = 1;
+            textBoxName.TabIndex = 0;
             textBoxName.Text = "Jan";
             // 
             // labelName
@@ -65,11 +75,94 @@
             labelName.TabIndex = 2;
             labelName.Text = "Podaj swoje imię:";
             // 
+            // checkBoxSchoolSubjectMathematics
+            // 
+            checkBoxSchoolSubjectMathematics.AutoSize = true;
+            checkBoxSchoolSubjectMathematics.Location = new Point(23, 107);
+            checkBoxSchoolSubjectMathematics.Name = "checkBoxSchoolSubjectMathematics";
+            checkBoxSchoolSubjectMathematics.Size = new Size(92, 19);
+            checkBoxSchoolSubjectMathematics.TabIndex = 2;
+            checkBoxSchoolSubjectMathematics.Text = "matematyka";
+            checkBoxSchoolSubjectMathematics.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSchoolSubjectGerman
+            // 
+            checkBoxSchoolSubjectGerman.AutoSize = true;
+            checkBoxSchoolSubjectGerman.Location = new Point(23, 132);
+            checkBoxSchoolSubjectGerman.Name = "checkBoxSchoolSubjectGerman";
+            checkBoxSchoolSubjectGerman.Size = new Size(106, 19);
+            checkBoxSchoolSubjectGerman.TabIndex = 4;
+            checkBoxSchoolSubjectGerman.Text = "język niemiecki";
+            checkBoxSchoolSubjectGerman.UseVisualStyleBackColor = true;
+            // 
+            // labelSchoolSubject
+            // 
+            labelSchoolSubject.AutoSize = true;
+            labelSchoolSubject.Location = new Point(23, 89);
+            labelSchoolSubject.Name = "labelSchoolSubject";
+            labelSchoolSubject.Size = new Size(163, 15);
+            labelSchoolSubject.TabIndex = 5;
+            labelSchoolSubject.Text = "Jaki lubisz przedmiot szkolny?";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(23, 190);
+            label2.Name = "label2";
+            label2.Size = new Size(324, 96);
+            label2.TabIndex = 6;
+            label2.Text = "labelPizzaQuestion\r\nradioButtonPizzaQuestionYes\r\nradioButtonPizzaQuestionNo";
+            // 
+            // radioButtonPizzaQuestionYes
+            // 
+            radioButtonPizzaQuestionYes.AutoSize = true;
+            radioButtonPizzaQuestionYes.Checked = true;
+            radioButtonPizzaQuestionYes.Location = new Point(224, 107);
+            radioButtonPizzaQuestionYes.Name = "radioButtonPizzaQuestionYes";
+            radioButtonPizzaQuestionYes.Size = new Size(42, 19);
+            radioButtonPizzaQuestionYes.TabIndex = 3;
+            radioButtonPizzaQuestionYes.TabStop = true;
+            radioButtonPizzaQuestionYes.Text = "Tak";
+            radioButtonPizzaQuestionYes.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonPizzaQuestionNo
+            // 
+            radioButtonPizzaQuestionNo.AutoSize = true;
+            radioButtonPizzaQuestionNo.Location = new Point(224, 131);
+            radioButtonPizzaQuestionNo.Name = "radioButtonPizzaQuestionNo";
+            radioButtonPizzaQuestionNo.Size = new Size(43, 19);
+            radioButtonPizzaQuestionNo.TabIndex = 5;
+            radioButtonPizzaQuestionNo.TabStop = true;
+            radioButtonPizzaQuestionNo.Text = "Nie";
+            radioButtonPizzaQuestionNo.UseVisualStyleBackColor = true;
+            // 
+            // labelPizzaQuestion
+            // 
+            labelPizzaQuestion.AutoSize = true;
+            labelPizzaQuestion.Location = new Point(224, 89);
+            labelPizzaQuestion.Name = "labelPizzaQuestion";
+            labelPizzaQuestion.Size = new Size(103, 15);
+            labelPizzaQuestion.TabIndex = 9;
+            labelPizzaQuestion.Text = "Pizza z ananasem?";
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Text = "notifyIcon1";
+            notifyIcon1.Visible = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(451, 354);
+            ClientSize = new Size(451, 432);
+            Controls.Add(labelPizzaQuestion);
+            Controls.Add(radioButtonPizzaQuestionNo);
+            Controls.Add(radioButtonPizzaQuestionYes);
+            Controls.Add(label2);
+            Controls.Add(labelSchoolSubject);
+            Controls.Add(checkBoxSchoolSubjectGerman);
+            Controls.Add(checkBoxSchoolSubjectMathematics);
             Controls.Add(labelName);
             Controls.Add(textBoxName);
             Controls.Add(buttonHello);
@@ -84,5 +177,13 @@
         private Button buttonHello;
         private TextBox textBoxName;
         private Label labelName;
+        private CheckBox checkBoxSchoolSubjectMathematics;
+        private CheckBox checkBoxSchoolSubjectGerman;
+        private Label labelSchoolSubject;
+        private Label label2;
+        private RadioButton radioButtonPizzaQuestionYes;
+        private RadioButton radioButtonPizzaQuestionNo;
+        private Label labelPizzaQuestion;
+        private NotifyIcon notifyIcon1;
     }
 }
