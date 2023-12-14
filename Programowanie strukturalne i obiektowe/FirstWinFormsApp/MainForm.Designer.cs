@@ -40,6 +40,8 @@
             radioButtonPizzaQuestionNo = new RadioButton();
             labelPizzaQuestion = new Label();
             notifyIcon1 = new NotifyIcon(components);
+            comboBoxFavouriteMeal = new ComboBox();
+            labelFavouriteMeal = new Label();
             SuspendLayout();
             // 
             // buttonHello
@@ -47,7 +49,7 @@
             buttonHello.BackColor = Color.Transparent;
             buttonHello.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             buttonHello.ForeColor = SystemColors.ControlText;
-            buttonHello.Location = new Point(93, 324);
+            buttonHello.Location = new Point(62, 487);
             buttonHello.Name = "buttonHello";
             buttonHello.Size = new Size(247, 96);
             buttonHello.TabIndex = 1;
@@ -108,11 +110,11 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(23, 190);
+            label2.Location = new Point(31, 318);
             label2.Name = "label2";
-            label2.Size = new Size(324, 96);
+            label2.Size = new Size(278, 64);
             label2.TabIndex = 6;
-            label2.Text = "labelPizzaQuestion\r\nradioButtonPizzaQuestionYes\r\nradioButtonPizzaQuestionNo";
+            label2.Text = "labelFavouriteMeal\r\ncomboBoxFavouriteMeal";
             // 
             // radioButtonPizzaQuestionYes
             // 
@@ -151,11 +153,33 @@
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
             // 
+            // comboBoxFavouriteMeal
+            // 
+            comboBoxFavouriteMeal.BackColor = Color.White;
+            comboBoxFavouriteMeal.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFavouriteMeal.FormattingEnabled = true;
+            comboBoxFavouriteMeal.Items.AddRange(new object[] { "Rosół", "Kebab", "Pizza z ananasem", "Schabowy", "Ramen" });
+            comboBoxFavouriteMeal.Location = new Point(12, 205);
+            comboBoxFavouriteMeal.Name = "comboBoxFavouriteMeal";
+            comboBoxFavouriteMeal.Size = new Size(442, 23);
+            comboBoxFavouriteMeal.TabIndex = 10;
+            // 
+            // labelFavouriteMeal
+            // 
+            labelFavouriteMeal.AutoSize = true;
+            labelFavouriteMeal.Location = new Point(12, 176);
+            labelFavouriteMeal.Name = "labelFavouriteMeal";
+            labelFavouriteMeal.Size = new Size(90, 15);
+            labelFavouriteMeal.TabIndex = 11;
+            labelFavouriteMeal.Text = "Ulubione danie:";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(451, 432);
+            ClientSize = new Size(479, 601);
+            Controls.Add(labelFavouriteMeal);
+            Controls.Add(comboBoxFavouriteMeal);
             Controls.Add(labelPizzaQuestion);
             Controls.Add(radioButtonPizzaQuestionNo);
             Controls.Add(radioButtonPizzaQuestionYes);
@@ -185,5 +209,7 @@
         private RadioButton radioButtonPizzaQuestionNo;
         private Label labelPizzaQuestion;
         private NotifyIcon notifyIcon1;
+        private ComboBox comboBoxFavouriteMeal;
+        private Label labelFavouriteMeal;
     }
 }
