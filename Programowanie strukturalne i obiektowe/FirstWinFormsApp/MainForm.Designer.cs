@@ -39,9 +39,12 @@
             radioButtonPizzaQuestionYes = new RadioButton();
             radioButtonPizzaQuestionNo = new RadioButton();
             labelPizzaQuestion = new Label();
-            notifyIcon1 = new NotifyIcon(components);
             comboBoxFavouriteMeal = new ComboBox();
             labelFavouriteMeal = new Label();
+            labelCurentTimeDescription = new Label();
+            labelCurentTime = new Label();
+            buttonRefreshTime = new Button();
+            timerRefreshTime = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // buttonHello
@@ -49,10 +52,11 @@
             buttonHello.BackColor = Color.Transparent;
             buttonHello.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             buttonHello.ForeColor = SystemColors.ControlText;
-            buttonHello.Location = new Point(62, 487);
+            buttonHello.Location = new Point(103, 561);
             buttonHello.Name = "buttonHello";
-            buttonHello.Size = new Size(247, 96);
+            buttonHello.Size = new Size(231, 40);
             buttonHello.TabIndex = 1;
+            buttonHello.Tag = "";
             buttonHello.Text = "Hello";
             buttonHello.UseVisualStyleBackColor = false;
             buttonHello.Click += buttonHello_Click;
@@ -110,11 +114,11 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(31, 318);
+            label2.Location = new Point(49, 422);
             label2.Name = "label2";
-            label2.Size = new Size(278, 64);
+            label2.Size = new Size(311, 96);
             label2.TabIndex = 6;
-            label2.Text = "labelFavouriteMeal\r\ncomboBoxFavouriteMeal";
+            label2.Text = "labelCurentTimeDescription\r\nlabelCurentTime\r\nbuttonRefreshTime";
             // 
             // radioButtonPizzaQuestionYes
             // 
@@ -148,11 +152,6 @@
             labelPizzaQuestion.TabIndex = 9;
             labelPizzaQuestion.Text = "Pizza z ananasem?";
             // 
-            // notifyIcon1
-            // 
-            notifyIcon1.Text = "notifyIcon1";
-            notifyIcon1.Visible = true;
-            // 
             // comboBoxFavouriteMeal
             // 
             comboBoxFavouriteMeal.BackColor = Color.White;
@@ -173,11 +172,50 @@
             labelFavouriteMeal.TabIndex = 11;
             labelFavouriteMeal.Text = "Ulubione danie:";
             // 
+            // labelCurentTimeDescription
+            // 
+            labelCurentTimeDescription.AutoSize = true;
+            labelCurentTimeDescription.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCurentTimeDescription.Location = new Point(26, 258);
+            labelCurentTimeDescription.Name = "labelCurentTimeDescription";
+            labelCurentTimeDescription.Size = new Size(145, 30);
+            labelCurentTimeDescription.TabIndex = 12;
+            labelCurentTimeDescription.Text = "Aktualny czas:";
+            // 
+            // labelCurentTime
+            // 
+            labelCurentTime.AutoSize = true;
+            labelCurentTime.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
+            labelCurentTime.Location = new Point(26, 304);
+            labelCurentTime.Name = "labelCurentTime";
+            labelCurentTime.Size = new Size(112, 47);
+            labelCurentTime.TabIndex = 13;
+            labelCurentTime.Text = "label1";
+            // 
+            // buttonRefreshTime
+            // 
+            buttonRefreshTime.Location = new Point(113, 365);
+            buttonRefreshTime.Name = "buttonRefreshTime";
+            buttonRefreshTime.Size = new Size(198, 54);
+            buttonRefreshTime.TabIndex = 14;
+            buttonRefreshTime.Text = "Odśwież czas";
+            buttonRefreshTime.UseVisualStyleBackColor = true;
+            buttonRefreshTime.Click += buttonRefreshTime_Click;
+            // 
+            // timerRefreshTime
+            // 
+            timerRefreshTime.Enabled = true;
+            timerRefreshTime.Interval = 1000;
+            timerRefreshTime.Tick += timerRefreshTime_Tick;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(479, 601);
+            Controls.Add(buttonRefreshTime);
+            Controls.Add(labelCurentTime);
+            Controls.Add(labelCurentTimeDescription);
             Controls.Add(labelFavouriteMeal);
             Controls.Add(comboBoxFavouriteMeal);
             Controls.Add(labelPizzaQuestion);
@@ -208,8 +246,11 @@
         private RadioButton radioButtonPizzaQuestionYes;
         private RadioButton radioButtonPizzaQuestionNo;
         private Label labelPizzaQuestion;
-        private NotifyIcon notifyIcon1;
         private ComboBox comboBoxFavouriteMeal;
         private Label labelFavouriteMeal;
+        private Label labelCurentTimeDescription;
+        private Label labelCurentTime;
+        private Button buttonRefreshTime;
+        private System.Windows.Forms.Timer timerRefreshTime;
     }
 }

@@ -7,6 +7,8 @@ namespace FirstWinFormsApp
             //comboBoxFavouriteMeal.SelectedIndex = 2;
             InitializeComponent();
             comboBoxFavouriteMeal.SelectedIndex = 2;
+
+            labelCurentTime.Text = DateTime.Now.ToString();
         }
 
         private void buttonHello_Click(object sender, EventArgs e)
@@ -45,5 +47,15 @@ namespace FirstWinFormsApp
                 MessageBoxDefaultButton.Button2);
         }
 
+        private void buttonRefreshTime_Click(object sender, EventArgs e)
+        {
+            labelCurentTime.Text = DateTime.Now.ToString();
+            //timerRefreshTime.Enabled = !timerRefreshTime.Enabled;
+        }
+
+        private void timerRefreshTime_Tick(object sender, EventArgs e)
+        {
+            labelCurentTime.Text = DateTime.Now.ToString();
+        }
     }
 }
