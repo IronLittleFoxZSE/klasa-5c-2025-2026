@@ -9,6 +9,7 @@ namespace FirstWinFormsApp
             comboBoxFavouriteMeal.SelectedIndex = 2;
 
             labelCurentTime.Text = DateTime.Now.ToString();
+            labelMouseClick.MouseWheel += labelMouseClick_MouseClick;
         }
 
         private void buttonHello_Click(object sender, EventArgs e)
@@ -56,6 +57,47 @@ namespace FirstWinFormsApp
         private void timerRefreshTime_Tick(object sender, EventArgs e)
         {
             labelCurentTime.Text = DateTime.Now.ToString();
+        }
+
+        private void labelMouseClick_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                labelMouseClick.Text = "Klikniêto lewy przycisk myszy";
+
+            if (e.Button == MouseButtons.Right)
+                labelMouseClick.Text = "Klikniêto prawy przycisk myszy";
+        }
+
+        private void operation_Click(object sender, EventArgs e)
+        {
+            Decimal firsNumber = numericUpDownFirstNumber.Value;
+            Decimal secondNumber = numericUpDownSecondNumber.Value;
+
+            Decimal result = 0;
+
+            //rozpoznajemy operacjê
+            Button button = sender as Button;
+            if (button == null)
+                return;
+
+            string operation = button.Text;
+            switch(operation)
+            {
+                case "+":
+                    result = firsNumber + secondNumber;
+                    break;
+                case "-":
+                    result = firsNumber - secondNumber;
+                    break;
+                case "*":
+                    result = firsNumber * secondNumber;
+                    break;
+                case "/":
+                    result = firsNumber / secondNumber;
+                    break;
+            }
+
+            labelResult.Text = "Wynik " + result.ToString();
         }
     }
 }

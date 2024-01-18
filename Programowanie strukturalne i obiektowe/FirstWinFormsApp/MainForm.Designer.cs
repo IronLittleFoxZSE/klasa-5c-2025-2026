@@ -45,6 +45,16 @@
             labelCurentTime = new Label();
             buttonRefreshTime = new Button();
             timerRefreshTime = new System.Windows.Forms.Timer(components);
+            labelMouseClick = new Label();
+            numericUpDownFirstNumber = new NumericUpDown();
+            numericUpDownSecondNumber = new NumericUpDown();
+            buttonAdd = new Button();
+            buttonSub = new Button();
+            buttonMul = new Button();
+            buttonDiv = new Button();
+            labelResult = new Label();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownFirstNumber).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownSecondNumber).BeginInit();
             SuspendLayout();
             // 
             // buttonHello
@@ -52,7 +62,7 @@
             buttonHello.BackColor = Color.Transparent;
             buttonHello.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             buttonHello.ForeColor = SystemColors.ControlText;
-            buttonHello.Location = new Point(103, 561);
+            buttonHello.Location = new Point(214, 425);
             buttonHello.Name = "buttonHello";
             buttonHello.Size = new Size(231, 40);
             buttonHello.TabIndex = 1;
@@ -114,11 +124,11 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(49, 422);
+            label2.Location = new Point(487, 371);
             label2.Name = "label2";
-            label2.Size = new Size(311, 96);
+            label2.Size = new Size(129, 160);
             label2.TabIndex = 6;
-            label2.Text = "labelCurentTimeDescription\r\nlabelCurentTime\r\nbuttonRefreshTime";
+            label2.Text = "buttonAdd\r\nbuttonSub\r\nbuttonMul\r\nbuttonDiv\r\nlabelResult";
             // 
             // radioButtonPizzaQuestionYes
             // 
@@ -208,11 +218,94 @@
             timerRefreshTime.Interval = 1000;
             timerRefreshTime.Tick += timerRefreshTime_Tick;
             // 
+            // labelMouseClick
+            // 
+            labelMouseClick.AutoSize = true;
+            labelMouseClick.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            labelMouseClick.ForeColor = Color.FromArgb(0, 192, 0);
+            labelMouseClick.Location = new Point(273, 258);
+            labelMouseClick.Name = "labelMouseClick";
+            labelMouseClick.Size = new Size(246, 32);
+            labelMouseClick.TabIndex = 15;
+            labelMouseClick.Text = "Jeszcze nie kliknięto";
+            labelMouseClick.MouseClick += labelMouseClick_MouseClick;
+            // 
+            // numericUpDownFirstNumber
+            // 
+            numericUpDownFirstNumber.Location = new Point(176, 508);
+            numericUpDownFirstNumber.Name = "numericUpDownFirstNumber";
+            numericUpDownFirstNumber.Size = new Size(120, 23);
+            numericUpDownFirstNumber.TabIndex = 16;
+            // 
+            // numericUpDownSecondNumber
+            // 
+            numericUpDownSecondNumber.Location = new Point(325, 508);
+            numericUpDownSecondNumber.Name = "numericUpDownSecondNumber";
+            numericUpDownSecondNumber.Size = new Size(120, 23);
+            numericUpDownSecondNumber.TabIndex = 17;
+            // 
+            // buttonAdd
+            // 
+            buttonAdd.Location = new Point(153, 559);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(75, 23);
+            buttonAdd.TabIndex = 18;
+            buttonAdd.Text = "+";
+            buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += operation_Click;
+            // 
+            // buttonSub
+            // 
+            buttonSub.Location = new Point(252, 559);
+            buttonSub.Name = "buttonSub";
+            buttonSub.Size = new Size(75, 23);
+            buttonSub.TabIndex = 19;
+            buttonSub.Text = "-";
+            buttonSub.UseVisualStyleBackColor = true;
+            buttonSub.Click += operation_Click;
+            // 
+            // buttonMul
+            // 
+            buttonMul.Location = new Point(351, 559);
+            buttonMul.Name = "buttonMul";
+            buttonMul.Size = new Size(75, 23);
+            buttonMul.TabIndex = 20;
+            buttonMul.Text = "*";
+            buttonMul.UseVisualStyleBackColor = true;
+            buttonMul.Click += operation_Click;
+            // 
+            // buttonDiv
+            // 
+            buttonDiv.Location = new Point(444, 559);
+            buttonDiv.Name = "buttonDiv";
+            buttonDiv.Size = new Size(75, 23);
+            buttonDiv.TabIndex = 21;
+            buttonDiv.Text = "/";
+            buttonDiv.UseVisualStyleBackColor = true;
+            buttonDiv.Click += operation_Click;
+            // 
+            // labelResult
+            // 
+            labelResult.AutoSize = true;
+            labelResult.Location = new Point(229, 607);
+            labelResult.Name = "labelResult";
+            labelResult.Size = new Size(43, 15);
+            labelResult.TabIndex = 22;
+            labelResult.Text = "Wynik:";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(479, 601);
+            ClientSize = new Size(666, 646);
+            Controls.Add(labelResult);
+            Controls.Add(buttonDiv);
+            Controls.Add(buttonMul);
+            Controls.Add(buttonSub);
+            Controls.Add(buttonAdd);
+            Controls.Add(numericUpDownSecondNumber);
+            Controls.Add(numericUpDownFirstNumber);
+            Controls.Add(labelMouseClick);
             Controls.Add(buttonRefreshTime);
             Controls.Add(labelCurentTime);
             Controls.Add(labelCurentTimeDescription);
@@ -230,6 +323,8 @@
             Controls.Add(buttonHello);
             Name = "MainForm";
             Text = "Pierwsza aplikacja desktopowa";
+            ((System.ComponentModel.ISupportInitialize)numericUpDownFirstNumber).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownSecondNumber).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -252,5 +347,13 @@
         private Label labelCurentTime;
         private Button buttonRefreshTime;
         private System.Windows.Forms.Timer timerRefreshTime;
+        private Label labelMouseClick;
+        private NumericUpDown numericUpDownFirstNumber;
+        private NumericUpDown numericUpDownSecondNumber;
+        private Button buttonAdd;
+        private Button buttonSub;
+        private Button buttonMul;
+        private Button buttonDiv;
+        private Label labelResult;
     }
 }
