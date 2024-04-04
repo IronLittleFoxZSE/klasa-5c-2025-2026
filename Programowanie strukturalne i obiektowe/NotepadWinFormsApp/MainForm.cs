@@ -123,6 +123,10 @@ namespace NotepadWinFormsApp
             textBoxNotepad.Paste(DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss:fffffff K"));
         }
 
-        
+        private void oProgramieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
+        }
     }
 }
