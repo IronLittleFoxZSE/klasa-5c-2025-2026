@@ -4,6 +4,20 @@
     {
         public string Message { get; set; }
 
+        private string returnMessage;
+        public string ReturnMessage
+        {
+            get { return returnMessage; }
+            set 
+            { 
+                returnMessage = value;
+                //OnPropertyChanged("ReturnMessage");
+                //OnPropertyChanged(nameof(ReturnMessage));
+                OnPropertyChanged();
+            }
+        }
+
+
         public MainPage()
         {
             InitializeComponent();
@@ -16,7 +30,9 @@
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            lab.Text = "Wartość z entry " + Message;
+            ReturnMessage = "Wartość z entry " + Message;
+            //OnPropertyChanged("ReturnMessage");
+            //OnPropertyChanged(nameof(ReturnMessage));
         }
     }
 
