@@ -10,7 +10,7 @@
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            string strFirstNumber = firstNumberEntry.Text;
+            string strFirstNumber = ((int)firstNumberSlider.Value).ToString();
             //int firstNumber = int.Parse(strFirstNumber);
 
             int firstNumber;

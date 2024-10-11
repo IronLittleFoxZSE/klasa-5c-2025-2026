@@ -14,7 +14,7 @@
                 ValueChanged="Slider_ValueChanged"
                 x:Name="rotationSlider"/>
         
-        <Label Text="{Binding Source={x:Reference rotationSlider},Path=Value}"
+        <Entry Text="{Binding Source={x:Reference rotationSlider},Path=Value}"
                FontSize="{Binding Source={x:Reference rotationSlider},Path=Value}"/>
 
         <Label BindingContext="{x:Reference rotationSlider}"
@@ -23,6 +23,18 @@
         
         <Label Text="Podaj wartość:"/>
         <Entry Text="{Binding Message,Source={x:Reference thisPage}}"/>
+        <!--<Slider Value="{Binding Message,Source={x:Reference thisPage}}"
+                Minimum="10"
+                Maximum="190"/>-->
+        <!--<Picker SelectedItem="{Binding Message,Source={x:Reference thisPage}}">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Banan</x:String>
+                    <x:String>Jabłko</x:String>
+                    <x:String>Mandarynka</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>-->
         <Button Text="Wykonaj"
                 Clicked="Button_Clicked"/>
         <Label Text="{Binding Path=ReturnMessage}"/>

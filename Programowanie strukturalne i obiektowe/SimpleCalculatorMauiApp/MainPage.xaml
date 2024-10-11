@@ -9,9 +9,14 @@
                    Background="Bisque"
                    FontSize="20"
                    VerticalOptions="Center"/>
-            <Entry HorizontalOptions="FillAndExpand"
-                   x:Name="firstNumberEntry"/>
-        </StackLayout
+            <!--<Entry HorizontalOptions="FillAndExpand"
+                   x:Name="firstNumberEntry"/>-->
+            <Slider Minimum="10"
+                    Maximum="360"
+                    x:Name="firstNumberSlider"
+                    HorizontalOptions="FillAndExpand"
+                    />
+        </StackLayout>
         <StackLayout Orientation="Horizontal">
             <Label Text="Druga liczba:"
                    Background="Bisque"
