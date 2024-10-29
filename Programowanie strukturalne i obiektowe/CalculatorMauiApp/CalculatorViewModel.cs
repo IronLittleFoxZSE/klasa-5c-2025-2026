@@ -23,21 +23,62 @@ namespace CalculatorMauiApp
         private Command numberCommand;
         public Command NumberCommand
         {
-            get 
+            get
             {
                 if (numberCommand == null)
-                    numberCommand = new Command<string>((string number) => 
+                    numberCommand = new Command<string>((string number) =>
                     {
-                        CalculatingResult = CalculatingResult + number;
+                        if (ifOperationExecute == false)
+                            CalculatingResult = CalculatingResult + number;
+                        else
+                        {
+                            CalculatingResult = number;
+                            ifOperationExecute = false;
+                        }
                     });
                 return numberCommand;
             }
             set { numberCommand = value; }
         }
-        /*
-         Command="{Binding NumberCommand}"
-         CommandParameter="{Binding Text,Source={x:RelativeSource Self}}"
-         * */
+
+        private Command operationCommand;
+        public Command OperationCommand
+        {
+            get
+            {
+                if (operationCommand == null)
+                    operationCommand = new Command<string>((string operatorSign) =>
+                    {
+                        if (ifOperationExecute)
+                            return;
+
+                        int firstNumber = prevNumber;
+                        int secondNumber = int.Parse(calculatingResult);
+                        CalculatingResult = GetOperatorResult(prevOperatorSign, firstNumber, secondNumber).ToString();
+                        prevOperatorSign = operatorSign;
+                        prevNumber = int.Parse(calculatingResult);
+                        ifOperationExecute = true;
+                    });
+                return operationCommand;
+            }
+            set { operationCommand = value; }
+        }
+
+        private string prevOperatorSign = "+";
+        private int prevNumber = 0;
+        private bool ifOperationExecute = false;
+        int GetOperatorResult(string operatorSign, int firstNumber, int secondNumber)
+        {
+            int result = operatorSign switch
+            {
+                "+" => firstNumber + secondNumber,
+                "-" => firstNumber - secondNumber,
+                "*" => firstNumber * secondNumber,
+                "/" => firstNumber / secondNumber,
+                _ => 0,
+            };
+            return result;
+        }
 
         public CalculatorViewModel()
         {
