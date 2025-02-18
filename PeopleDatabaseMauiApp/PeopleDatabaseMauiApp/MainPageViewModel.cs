@@ -1,6 +1,8 @@
 ﻿using PeopleDatabaseClassLibrary;
+using PeopleDatabaseClassLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,10 +29,30 @@ namespace PeopleDatabaseMauiApp
             }
         }
 
+        public ObservableCollection<Person> People { get; set; }
+
+        private Command readPeopleCommand;
+        public Command ReadPeopleCommand
+        {
+            get
+            {
+                if (readPeopleCommand == null)
+                    readPeopleCommand = new Command(() =>
+                    {
+                        List<Person> people = peopleRepository.GetPeople();
+                        People.Clear();
+                        foreach (Person person in people)
+                            People.Add(person);
+                    });
+                return readPeopleCommand;
+            }
+        }
+
         private PeopleRepository peopleRepository;
         public MainPageViewModel()
         {
             peopleRepository = new PeopleRepository();
+            People = new ObservableCollection<Person>();
         }
     }
 }

@@ -27,5 +27,24 @@ namespace PeopleDatabaseClassLibrary
             dbContext.People.Add(person);
             dbContext.SaveChanges();
         }
+
+        public List<Person> GetPeople()
+        {
+            /*
+                select *
+                from People4C.People
+                where Age >= 18
+                order by Surname asc, Name desc
+            */
+
+            return dbContext
+                .People
+                .Where(p => p.Age >= 18)
+                .OrderBy(p => p.Surname)
+                .ThenByDescending(p => p.Name)
+                //.Select(p => p)
+                .ToList();
+
+        }
     }
 }
