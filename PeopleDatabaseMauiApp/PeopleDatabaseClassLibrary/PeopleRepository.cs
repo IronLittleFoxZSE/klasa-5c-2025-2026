@@ -33,13 +33,15 @@ namespace PeopleDatabaseClassLibrary
         {
             /*
                 select *
-                from People4C.People
-                where Age >= 18
-                order by Surname asc, Name desc
+                from People4C.People p
+           left join Addresses a on a.Id = p.AddressId
+               where p.Age >= 18
+               order by p.Surname asc, p.Name desc
             */
 
             return dbContext
                 .People
+                .Include(p => p.Address) //left join Addresses a on a.Id = p.AddressId
                 .AsNoTracking()
                 .Where(p => p.Age >= 18)
                 .OrderBy(p => p.Surname)
@@ -66,12 +68,26 @@ namespace PeopleDatabaseClassLibrary
                  where id = idNET
              */ 
             //Person personToUpdate = dbContext.People.Where(p=> p.Id == id).FirstOrDefault();
-            Person? personToUpdate = dbContext.People.FirstOrDefault(p=> p.Id == id);
+            Person? personToUpdate = dbContext.People.FirstOrDefault(p => p.Id == id);
             if (personToUpdate != null)
             {
                 personToUpdate.Name = name;
                 personToUpdate.Surname = surname;
                 personToUpdate.Age = age;
+                dbContext.SaveChanges();
+            }
+        }
+
+        public void DeletePerson(int id)
+        {
+            /*
+             delete from People p
+                   where p.id = idNET
+             */
+            Person? personToDelete = dbContext.People.FirstOrDefault(p => p.Id == id);
+            if (personToDelete != null)
+            {
+                dbContext.People.Remove(personToDelete);
                 dbContext.SaveChanges();
             }
         }
