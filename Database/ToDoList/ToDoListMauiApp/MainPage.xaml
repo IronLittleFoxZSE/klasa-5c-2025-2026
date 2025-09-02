@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoListMauiApp.MainPage"
+             xmlns:viewModel="clr-namespace:ToDoListMauiApp.ViewModel"
+             xmlns:converters="clr-namespace:ToDoListMauiApp.Converters">
+    <ContentPage.BindingContext>
+        <viewModel:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <converters:CompletedTaskToIconNameConverter x:Key="CompletedTaskToIconNameConverter"/>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Nowe zadanie"
+                   FontSize="20"/>
+            <Entry Placeholder="Podaj nazwę"
+                   Text="{Binding NewTaksName}"/>
+            <Button Text="Dodaj zadanie"
+                    HorizontalOptions="Center"
+                    Command="{Binding AddNewToDoTaskCommand}"/>
+
+            <Label Text="Lista zadań:"
+                   FontSize="20"/>
+            <CollectionView ItemsSource="{Binding ToDoTasks}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto" Padding="10">
+                            <Label Text="{Binding Name}"
+                                   VerticalOptions="Center"
+                                   Grid.Column="0"/>
+                            <Image Grid.Column="2"
+                                   Source="{Binding IsCompleted,Converter={StaticResource CompletedTaskToIconNameConverter}}"/>
+                            <Button Text="Wykonane"
+                                    Command="{Binding SetCompletedCommand}"
+                                    CommandParameter="{Binding .}"
+                                    Grid.Column="3"/>
+                            <Button Text="Usuń"
+                                    Command="{Binding SetDeletedCommand}"
+                                    CommandParameter="{Binding .}"
+                                    Grid.Column="4"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Lista zadań usuniętych:"
+                   FontSize="20"/>
+            <CollectionView ItemsSource="{Binding ToDoDeletedTasks}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="Auto,*,Auto" Padding="10">
+                            <Label Text="{Binding Name}"
+                                   VerticalOptions="Center"
+                                   Grid.Column="0"/>
+                            <Image Grid.Column="2"
+                                   Source="{Binding IsCompleted,Converter={StaticResource CompletedTaskToIconNameConverter}}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
