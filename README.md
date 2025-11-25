@@ -16,3 +16,39 @@ Dostepne technologie (biblioteki) na platformie .net.
 * APS.NET
 * i inne.
 
+
+```csharp
+#if WINDOWS
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using WinRT.Interop;
+#endif
+```` 
+
+```csharp
+#if WINDOWS
+        async void SaveFileWindowsAsync(object sender, EventArgs e)
+        {
+            var picker = new FileSavePicker();
+            picker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            picker.FileTypeChoices.Add("Text file", new List<string> { ".txt" });
+            picker.SuggestedFileName = "Tekst";
+
+            // Powiązanie z oknem MAUI
+            var window = Application.Current.Windows.First().Handler.PlatformView as Microsoft.UI.Xaml.Window;
+            IntPtr hWnd = WindowNative.GetWindowHandle(window);
+            InitializeWithWindow.Initialize(picker, hWnd);
+
+            StorageFile file = await picker.PickSaveFileAsync();
+            if (file != null)
+            {    
+                File.WriteAllText(file.Path, "TO CO MAMY ZAPISAĆ");
+            }
+        }
+#else
+        async void SaveFileWindowsAsync(object sender, EventArgs e)
+        {
+
+        }
+#endif
+```` 
